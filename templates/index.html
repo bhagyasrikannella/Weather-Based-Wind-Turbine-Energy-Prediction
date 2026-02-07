@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wind Energy Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="card">
+    <h2>Wind Energy Prediction</h2>
+    <form id="predictionForm">
+        <label>Wind Speed (m/s)</label>
+        <input type="number" step="any" name="wind_speed" required>
+        <label>Theoretical Power (kW)</label>
+        <input type="number" step="any" name="theoretical_power" required>
+        <button type="submit">Predict Power</button>
+    </form>
+
+    <div class="gauge-container">
+        <svg>
+            <circle cx="100" cy="100" r="90" stroke="#ddd" stroke-width="15" fill="none"/>
+            <circle id="gauge-fill" cx="100" cy="100" r="90" stroke="#27ae60" stroke-width="15" fill="none"
+                    stroke-dasharray="0,100" transform="rotate(-90 100 100)"/>
+            <text id="gauge-text" x="100" y="110">0 kW</text>
+        </svg>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
